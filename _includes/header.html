@@ -17,39 +17,27 @@
         <ul class="navbar-nav ml-auto flex-nowrap">
             {%- for item in menu.main -%}
                 <li class="nav-item">
-                    {% if nav == item.name %}
-                    <a href="#" class="nav-link active">{{item.name}}</a>
-                    {% else %}
-                    <a href="#" class="nav-link">{{item.name}}</a>
-                    {% endif %}
+                        <a href="{% if loggedIn == true %}/authenticated{% endif %}{{item.url}}" class="nav-link nav-link {% if nav == item.name %}active{% endif %}">{{item.name}}</a>
                 </li>
             {%- endfor -%}
 
             {% if loggedIn == true %}
                 {%- for item in menu.loggedIn -%}
-                <li class="nav-item">
-                    {% if nav == item.name %}
-                    <a href="#" class="nav-link active">{{item.name}}</a>
-                    {% else %}
-                    <a href="#" class="nav-link">{{item.name}}</a>
-                    {% endif %}
-                </li>
+                    <li class="nav-item">
+                        <a href="/authenticated{{item.url}}" class="nav-link {% if nav == item.name %}active{% endif %}">{{item.name}}</a>
+                    </li>
                 {%- endfor -%}
             {% endif %}
 
             {% if loggedIn == false %}
-            {%- for item in menu.login -%}
-            <li class="nav-item">
-                {% if nav == item.name %}
-                <a href="#" class="nav-link active">{{item.name}}</a>
-                {% else %}
-                <a href="#" class="nav-link">{{item.name}}</a>
-                {% endif %}
-            </li>
-            {%- endfor -%}
+                {%- for item in menu.login -%}
+                    <li class="nav-item">
+                        <a href="{{item.url}}" class="nav-link nav-link {% if nav == item.name %}active{% endif %}">{{item.name}}</a>
+                    </li>
+                {%- endfor -%}
             {% else %}
             <li class="nav-item">
-                <a class="nav-link">{{site.user}}</a>
+                <a href = "/" class="nav-link">{{site.user}}</a>
             </li>
         {% endif %}
         </ul>

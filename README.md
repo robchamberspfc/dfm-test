@@ -1,10 +1,12 @@
 # dfm-test
 
 Static site generator https://www.11ty.io/
+
 Framework https://getbootstrap.com/docs/4.3/getting-started/introduction/
 
 
 ##Getting started
+
 Install 11ty
 `npm install -g @11ty/eleventy`
 

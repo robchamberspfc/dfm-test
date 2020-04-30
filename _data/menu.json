@@ -1,15 +1,19 @@
 {
     "main": [{
-            "name": "Home"
+            "name": "Home",
+            "url": "/"
         },
         {
-            "name": "Queries"
+            "name": "Queries",
+            "url": "/queries"
         }
     ],
     "loggedIn": [{
-        "name": "Users"
+        "name": "Users",
+        "url": "/users"
     }],
     "login": [{
-        "name": "Login"
+        "name": "Login",
+        "url": "/login"
     }]
 }
