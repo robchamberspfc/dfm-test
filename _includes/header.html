@@ -1,0 +1,92 @@
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class = "container">
+    <div class="d-flex flex-grow-1">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+            <img src="{{ site.logoUrl }}"
+                width="250" height="40">
+            <strong>{{ site.title }}</strong>
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar7">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar7">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            {%- for item in menu.main -%}
+                <li class="nav-item">
+                    {% if nav == item.name %}
+                    <a href="#" class="nav-link active">{{item.name}}</a>
+                    {% else %}
+                    <a href="#" class="nav-link">{{item.name}}</a>
+                    {% endif %}
+                </li>
+            {%- endfor -%}
+
+            {% if loggedIn == true %}
+                {%- for item in menu.loggedIn -%}
+                <li class="nav-item">
+                    {% if nav == item.name %}
+                    <a href="#" class="nav-link active">{{item.name}}</a>
+                    {% else %}
+                    <a href="#" class="nav-link">{{item.name}}</a>
+                    {% endif %}
+                </li>
+                {%- endfor -%}
+            {% endif %}
+
+            {% if loggedIn == false %}
+            {%- for item in menu.login -%}
+            <li class="nav-item">
+                {% if nav == item.name %}
+                <a href="#" class="nav-link active">{{item.name}}</a>
+                {% else %}
+                <a href="#" class="nav-link">{{item.name}}</a>
+                {% endif %}
+            </li>
+            {%- endfor -%}
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link">{{site.user}}</a>
+            </li>
+        {% endif %}
+            
+            
+
+
+
+
+            <!-- <li class="nav-item">
+                {% if nav == "Home" %}
+                <a href="#" class="nav-link active">Home</a>
+                {% else %}
+                <a href="#" class="nav-link">Home</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if nav == "queries" %}
+                <a href="#" class="nav-link active">Queries</a>
+                {% else %}
+                <a href="#" class="nav-link">Queries</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if nav == "users" %}
+                <a href="#" class="nav-link active">Users</a>
+                {% else %}
+                <a href="#" class="nav-link">Users</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if nav == "login" %}
+                <a href="#" class="nav-link active">Login</a>
+                {% else %}
+                <a href="#" class="nav-link">Login</a>
+                {% endif %}
+            </li> -->
+        </ul>
+    </div>
+</div>
+</nav>
